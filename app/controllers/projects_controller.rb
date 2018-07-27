@@ -20,6 +20,13 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "index")
     else
+      user = User.find_by(email: current_user.email)
+      if user.nil?
+        redirect_to(controller: "projects", action: "show")
+        return
+      user.xp += 2
+      user.save
+
       Project.create(owner: current_user.email,
         title: params[:title],
         collaborators: params[:collaborators],
