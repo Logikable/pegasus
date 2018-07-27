@@ -103,10 +103,11 @@
             font-family: "proxima_nova_semibold";
             margin: 2px 0;
           }
-          span {
+          .top-person-role-team {
             font-size: 12px;
             font-family: "Proxima Nova";
             color: $font-light-color;
+            margin: 0;
           }
         }
         span {

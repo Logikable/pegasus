@@ -13,7 +13,7 @@
           <%= image_tag image_url(person.image) %>
           <div class="top-person-description">
             <p><%= person.name %></p>
-            <span><%= person.role %> | <%= person.team %></span>
+            <p class="top-person-role-team"><%= person.role %> | <%= person.team %></p>
           </div>
           <span><%= person.xp %></span>
         </div>

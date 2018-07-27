@@ -1,0 +1,7 @@
+<h1>Pegasus</h1>
+
+<%= form_for @user do |u| %>
+  Role: <%= u.text_field :role %>
+  Team: <%= u.text_field :team %>
+  <%= u.submit "Update" %>
+<% end %>

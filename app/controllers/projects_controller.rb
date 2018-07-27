@@ -1,7 +1,7 @@
 class ProjectsController < ApplicationController
   def index
     if current_user.nil?
-      redirect_to(controller: "home", action: "index")
+      redirect_to(controller: "home", action: "login")
     else
       @projects = Project.where(owner: current_user.email)
       render "index"
@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
 
   def show
     if current_user.nil?
-      redirect_to(controller: "home", action: "index")
+      redirect_to(controller: "home", action: "login")
     else
       @project = Project.find_by(title: params[:id])
       if @project.nil?
@@ -23,7 +23,7 @@ class ProjectsController < ApplicationController
 
   def edit
     if current_user.nil?
-      redirect_to(controller: "home", action: "index")
+      redirect_to(controller: "home", action: "login")
     else
       project = Project.find_by(title: params[:id])
       if project.nil?
@@ -46,7 +46,7 @@ class ProjectsController < ApplicationController
 
   def new
     if current_user.nil?
-      redirect_to(controller: "home", action: "index")
+      redirect_to(controller: "home", action: "login")
     else
       render "new"
     end      
@@ -54,7 +54,7 @@ class ProjectsController < ApplicationController
 
   def create
     if current_user.nil?
-      redirect_to(controller: "home", action: "index")
+      redirect_to(controller: "home", action: "login")
     else
       current_user.xp += 2
       current_user.save

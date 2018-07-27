@@ -1,6 +1,5 @@
 <h1>Pegasus</h1>
-<p>Very good app</p>
 
-<% if current_user %>
-  Hello, <strong><%= current_user.name %></strong>!
-<% end %>
+Hello, <strong><%= current_user.name %></strong>!
+
+<%= link_to("Edit Profile", edit_user_path(current_user)) %>
