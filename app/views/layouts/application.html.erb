@@ -18,8 +18,8 @@
       </div>
       <div class="profile_description">
         <h4><%= current_user.name %></h4>
-        <h6>Software Engineer | Infrastructure</h6>
-        <h6 class="exp">Exp: <span class="expnum"><%= current_user.xp %></span> <span class="exppts">PTS</span></h6>
+        <h6><%= current_user.role %> | <%= current_user.team %></h6>
+        <h6 class="exp">XP: <span class="expnum"><%= current_user.xp %></span> <span class="exppts">PTS</span></h6>
       </div>
       <div class="progress">
         <div class="progress-bar-outline">
@@ -33,7 +33,7 @@
         <div class="shortcut">
           <a href="/">
             <% if current_page == "/" %>
-              <%= image_tag image_url("feed.svg"), class:"icon-active" %>
+              <%= image_tag image_url("feed_active.svg")%>
               <p class="shortcut-link shortcut-active">My Feed</p>
             <% else %>
               <%= image_tag image_url("feed.svg") %>
@@ -44,7 +44,7 @@
         <div class="shortcut">
           <a href="/projects">
             <% if current_page == "/projects" %>
-              <%= image_tag image_url("projects.svg"), class:"icon-active" %>
+              <%= image_tag image_url("projects_active.svg") %>
               <p class="shortcut-link shortcut-active">Projects</p>
             <% else %>
               <%= image_tag image_url("projects.svg") %>
@@ -55,7 +55,7 @@
         <div class="shortcut">
           <a href="/profile">
             <% if current_page == "/profile" || current_page == "user" %>
-              <%= image_tag image_url("profile.svg"), class:"icon-active" %>
+              <%= image_tag image_url("profile_active.svg") %>
               <p class="shortcut-link shortcut-active">Profile</p>
             <% else %>
               <%= image_tag image_url("profile.svg") %>
@@ -66,7 +66,7 @@
         <div class="shortcut">
           <a href="/teams">
             <% if current_page == "/teams" %>
-              <%= image_tag image_url("teams.svg"), class:"icon-active" %>
+              <%= image_tag image_url("teams._activesvg") %>
               <p class="shortcut-link shortcut-active">Teams</p>
             <% else %>
               <%= image_tag image_url("teams.svg") %>

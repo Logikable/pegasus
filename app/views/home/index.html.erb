@@ -1,6 +1,32 @@
-<h1>Pegasus</h1>
-<p>Very good app</p>
-
-<p><%= link_to "Projects", controller: "projects", action: "show" %></p>
-
-Signed in as <strong><%= current_user.name %></strong>!
+<div class="feed-container">
+  <div class="feed-searchbar-container">
+    <%= image_tag image_url("search.svg"), class: "search-icon" %>
+    <input type="text" placeholder="Search Pegasus" class="feed-searchbar" />
+  </div>
+  <div class="feed-left">
+    <div class="top-exp-persons">
+      <p class="feed-header">Top XP</p>
+      <p class="feed-sub-header">Jul 2018</p>
+      <p class="feed-right-header">XP</p>
+      <% @top_xp_persons.each do |person| %>
+        <div class="top-person">
+          <%= image_tag image_url(person.image) %>
+          <div class="top-person-description">
+            <p><%= person.name %></p>
+            <span><%= person.role %> | <%= person.team %></span>
+          </div>
+          <span><%= person.xp %></span>
+        </div>
+      <% end %>
+    </div>
+    <div class="top-projects">
+      <p class="feed-header">Top Projects</p>
+      <p class="feed-sub-header">Jul 2018</p>
+      <p class="feed-right-header">Stars</p>
+    </div>
+  </div><div class="feed-right">
+    <div class="feed-updates">
+      <p class="feed-header">Updates</p>
+    </div>
+  </div>
+</div>
