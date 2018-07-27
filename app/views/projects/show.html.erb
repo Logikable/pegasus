@@ -2,6 +2,7 @@
 <p>Very good app</p>
 
 <p><%= link_to('Click here to go back', controller: "projects", action: "index") %></p>
+<p><%= link_to('Complete project', edit_project_path(@project.title)) %></p>
 
 <table>
   <tr>
@@ -31,5 +32,9 @@
   <tr>
     <td>Stars</td>
     <td><%= @project.stars %></td>
+  </tr>
+  <tr>
+    <td>Done</td>
+    <td><%= @project.done %></td>
   </tr>
 </table>

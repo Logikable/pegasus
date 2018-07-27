@@ -19,20 +19,14 @@ class StarController < ApplicationController
       return
     end
 
-    sender_user = User.find_by(email: current_user.email)
-    if sender_user.nil?
-      redirect_to(controller: "projects", action: "index")
-      return
-    end
-
     receiver_user = User.find_by(email: params[:receiver])
     if receiver_user.nil?
       redirect_to(controller: "projects", action: "index")
       return
     end
 
-    sender_user.xp += 1
-    sender_user.save
+    current_user.xp += 1
+    current_user.save
     receiver_user.xp += 10
     receiver_user.save
 
