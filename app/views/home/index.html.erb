@@ -6,7 +6,6 @@
   <div class="feed-left">
     <div class="top-exp-persons">
       <p class="feed-header">Top XP</p>
-      <p class="feed-sub-header">Jul 2018</p>
       <p class="feed-right-header">XP</p>
       <% @top_xp_persons.each do |person| %>
         <div class="top-person">
@@ -21,8 +20,16 @@
     </div>
     <div class="top-projects">
       <p class="feed-header">Top Projects</p>
-      <p class="feed-sub-header">Jul 2018</p>
       <p class="feed-right-header">Stars</p>
+      <% @top_projects.each do |p| %>
+        <div class="top-project">
+          <div class="top-project-description">
+            <p><%= p.title %></p>
+            <p class="top-project-collaborators">5 collaborators</p>
+          </div>
+          <span><%= p.stars.size %>★</span>
+        </div>
+      <% end %>
     </div>
   </div><div class="feed-right">
     <div class="feed-updates">

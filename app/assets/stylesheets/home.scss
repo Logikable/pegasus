@@ -89,6 +89,7 @@
 
       .top-person {
         height: 50px;
+        clear: both;
         img {
           height: 34px;
           margin-top: 2px;
@@ -126,6 +127,32 @@
       background-color: white;
       border-radius: 4px;
       padding: 15px;
+      .top-project {
+        height: 50px;
+        clear: both;
+        .top-project-description {
+          display: inline-block;
+          vertical-align: top;
+          p {
+            font-size: 14px;
+            font-family: "proxima_nova_semibold";
+            margin: 0;
+          }
+          .top-project-collaborators {
+            font-size: 12px;
+            font-family: "Proxima Nova";
+            color: $font-light-color;
+            margin: 0;
+          }
+        }
+        span {
+          margin-top: 2px;
+          vertical-align: top;
+          font-size: 14px;
+          font-family: "proxima_nova_semibold";
+          float:right;
+        }
+      }
     }
   }
 
