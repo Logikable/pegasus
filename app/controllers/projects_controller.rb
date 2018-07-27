@@ -1,10 +1,46 @@
 class ProjectsController < ApplicationController
-  def show
+  def index
     if current_user.nil?
       redirect_to(controller: "home", action: "index")
     else
       @projects = Project.where(owner: current_user.email)
       render "index"
+    end
+  end
+
+  def show
+    if current_user.nil?
+      redirect_to(controller: "home", action: "index")
+    else
+      @project = Project.find_by(title: params[:id])
+      if @project.nil?
+        redirect_to(controller: "projects", action: "index")
+        return
+      end
+      render "show"
+    end
+  end
+
+  def edit
+    if current_user.nil?
+      redirect_to(controller: "home", action: "index")
+    else
+      project = Project.find_by(title: params[:id])
+      if project.nil?
+        redirect_to(controller: "projects", action: "index")
+        return
+      end
+      if project.done
+        redirect_to(project_path(params[:id]))
+        return
+      end
+
+      project.done = true
+      project.save
+      current_user.xp += 5
+      current_user.save
+
+      redirect_to(project_path(params[:id]))
     end
   end
 
@@ -20,13 +56,8 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "index")
     else
-      user = User.find_by(email: current_user.email)
-      if user.nil?
-        redirect_to(controller: "projects", action: "show")
-        return
-      end
-      user.xp += 2
-      user.save
+      current_user.xp += 2
+      current_user.save
 
       Project.create(owner: current_user.email,
         title: params[:title],
@@ -36,8 +67,9 @@ class ProjectsController < ApplicationController
         tasks: params[:tasks],
         milestones: params[:milestones],
         stars: "",
+        done: false,
         )
-      redirect_to(controller: "projects", action: "show")
+      redirect_to(controller: "projects", action: "index")
     end
   end
 end

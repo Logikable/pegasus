@@ -1,0 +1,40 @@
+<h1>Project <%= @project.title %></h1>
+<p>Very good app</p>
+
+<p><%= link_to('Click here to go back', controller: "projects", action: "index") %></p>
+<p><%= link_to('Complete project', edit_project_path(@project.title)) %></p>
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td><%= @project.description %></td>
+  </tr>
+  <tr>
+    <td>Tasks</td>
+    <td><%= @project.tasks %></td>
+  </tr>
+  <tr>
+    <td>Milestones</td>
+    <td><%= @project.milestones %></td>
+  </tr>
+  <tr>
+    <td>Team</td>
+    <td><%= @project.team %></td>
+  </tr>
+  <tr>
+    <td>Collaborators</td>
+    <td><%= @project.collaborators %></td>
+  </tr>
+  <tr>
+    <td>Stakeholders</td>
+    <td><%= @project.stakeholders %></td>
+  </tr>
+  <tr>
+    <td>Stars</td>
+    <td><%= @project.stars %></td>
+  </tr>
+  <tr>
+    <td>Done</td>
+    <td><%= @project.done %></td>
+  </tr>
+</table>

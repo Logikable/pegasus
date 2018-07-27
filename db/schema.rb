@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_093013) do
     t.string "milestones"
     t.string "stars"
     t.string "team"
+    t.boolean "done"
   end
 
   create_table "users", force: :cascade do |t|
