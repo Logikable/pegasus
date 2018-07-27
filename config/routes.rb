@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :user
   resources :projects, only: [:index, :show, :new, :create, :edit]
   resources :star, only: [:new, :create]
+  resources :teams
 
   root 'home#index'
 

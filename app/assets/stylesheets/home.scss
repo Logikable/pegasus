@@ -39,6 +39,7 @@
   vertical-align: top;
   float: right;
   line-height: 35px;
+  font-size: 16px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -90,7 +91,7 @@
         height: 50px;
         img {
           height: 34px;
-          margin-top: 3px;
+          margin-top: 2px;
           margin-right: 10px;
           border-radius: 50%;
           display: inline-block;
@@ -101,7 +102,7 @@
           p {
             font-size: 14px;
             font-family: "proxima_nova_semibold";
-            margin: 2px 0;
+            margin: 0;
           }
           .top-person-role-team {
             font-size: 12px;
@@ -113,7 +114,7 @@
         span {
           margin-top: 2px;
           vertical-align: top;
-          font-size: 16px;
+          font-size: 14px;
           font-family: "proxima_nova_semibold";
           float:right;
         }
@@ -139,6 +140,10 @@
       background-color: white;
       border-radius: 4px;
       padding: 15px;
+
+      .feed-header {
+        margin-top: 10px;
+      }
     }
   }
 }
