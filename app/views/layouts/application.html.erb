@@ -30,22 +30,49 @@
         <p class="progress-stop-label">Accomplished</p>
       </div>
       <div class="shortcuts">
-        <p class="shortcut-label">Shortcuts</p>
         <div class="shortcut">
-          <div class="shortcut-icon"></div>
-          <p class="shortcut-link">My Feed</p>
+          <a href="/">
+            <% if current_page == "/" %>
+              <%= image_tag image_url("feed.svg"), class:"icon-active" %>
+              <p class="shortcut-link shortcut-active">My Feed</p>
+            <% else %>
+              <%= image_tag image_url("feed.svg") %>
+              <p class="shortcut-link">My Feed</p>
+            <% end %>
+          </a>
         </div>
         <div class="shortcut">
-          <div class="shortcut-icon"></div>
-          <p class="shortcut-link">Projects</p>
+          <a href="/projects">
+            <% if current_page == "/projects" %>
+              <%= image_tag image_url("projects.svg"), class:"icon-active" %>
+              <p class="shortcut-link shortcut-active">Projects</p>
+            <% else %>
+              <%= image_tag image_url("projects.svg") %>
+              <p class="shortcut-link">Projects</p>
+            <% end %>
+          </a>
         </div>
         <div class="shortcut">
-          <div class="shortcut-icon"></div>
-          <p class="shortcut-link">Profile</p>
+          <a href="/profile">
+            <% if current_page == "/profile" || current_page == "user" %>
+              <%= image_tag image_url("profile.svg"), class:"icon-active" %>
+              <p class="shortcut-link shortcut-active">Profile</p>
+            <% else %>
+              <%= image_tag image_url("profile.svg") %>
+              <p class="shortcut-link">Profile</p>
+            <% end %>
+          </a>
         </div>
         <div class="shortcut">
-          <div class="shortcut-icon"></div>
-          <p class="shortcut-link">Settings</p>
+          <a href="/teams">
+            <% if current_page == "/teams" %>
+              <%= image_tag image_url("teams.svg"), class:"icon-active" %>
+              <p class="shortcut-link shortcut-active">Teams</p>
+            <% else %>
+              <%= image_tag image_url("teams.svg") %>
+              <p class="shortcut-link">Teams</p>
+            <% end %>
+          </a>
         </div>
       </div>
       <%= link_to "LOGOUT", signout_path, class: "btn_logout" %>
