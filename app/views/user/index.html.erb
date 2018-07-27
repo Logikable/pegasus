@@ -3,3 +3,9 @@
 Hello, <strong><%= current_user.name %></strong>!
 
 <%= link_to("Edit Profile", edit_user_path(current_user)) %>
+
+<h2>Your Stars</h2>
+
+<% current_user.stars.each do |s| %>
+  Star given for work on <%= s.project.title %>
+<% end %>

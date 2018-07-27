@@ -30,7 +30,11 @@
   </tr>
   <tr>
     <td>Stars</td>
-    <td><%= @project.stars %></td>
+    <td>
+      <% @project.stars.each do |s| %>
+        <p>Star given to <%= s.starree.name %> by <%= s.starrer.name %></p>
+      <% end %>
+    </td>
   </tr>
   <tr>
     <td>Done</td>

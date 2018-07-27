@@ -30,12 +30,11 @@ class StarController < ApplicationController
     receiver_user.xp += 10
     receiver_user.save
 
-    if project.stars == ""
-      project.stars << params[:receiver]
-    else
-      project.stars << "," + params[:receiver]
-    end
-    project.save
+    s = Star.new
+    s.project = project
+    s.starrer_id = current_user.id
+    s.starree_id = receiver_user.id
+    s.save
     redirect_to(controller: "projects", action: "index")
   end
 end

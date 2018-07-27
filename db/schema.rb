@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_27_093013) do
+ActiveRecord::Schema.define(version: 2018_07_27_215449) do
 
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,9 +22,19 @@ ActiveRecord::Schema.define(version: 2018_07_27_093013) do
     t.string "description"
     t.string "tasks"
     t.string "milestones"
-    t.string "stars"
     t.string "team"
     t.boolean "done"
+  end
+
+  create_table "stars", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "starrer_id"
+    t.integer "starree_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["project_id"], name: "index_stars_on_project_id"
+    t.index ["starree_id"], name: "index_stars_on_starree_id"
+    t.index ["starrer_id"], name: "index_stars_on_starrer_id"
   end
 
   create_table "users", force: :cascade do |t|
