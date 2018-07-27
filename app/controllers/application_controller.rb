@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
   end
 
   def current_page
-    @current_page = request.original_fullpath
+    @current_page = request.original_fullpath.split("/")[1]
   end
 end

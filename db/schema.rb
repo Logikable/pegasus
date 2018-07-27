@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_27_215449) do
+ActiveRecord::Schema.define(version: 2018_07_27_225709) do
 
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_215449) do
     t.string "description"
     t.string "tasks"
     t.string "milestones"
-    t.string "team"
+    t.integer "team", default: 1
     t.boolean "done"
   end
 
@@ -37,6 +37,13 @@ ActiveRecord::Schema.define(version: 2018_07_27_215449) do
     t.index ["starrer_id"], name: "index_stars_on_starrer_id"
   end
 
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "provider"
     t.string "uid"
@@ -48,7 +55,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_215449) do
     t.string "email"
     t.string "image"
     t.integer "xp"
-    t.string "team"
+    t.integer "team", default: 1
     t.string "role"
   end
 

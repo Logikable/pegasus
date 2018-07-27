@@ -1,7 +1,7 @@
 <h1>Project <%= @project.title %></h1>
 
 <p><%= link_to('Click here to go back', controller: "projects", action: "index") %></p>
-<p><%= link_to('Complete project', edit_project_path(@project.title)) %></p>
+<p><%= link_to('Complete project', edit_project_path(@project)) %></p>
 
 <table>
   <tr>

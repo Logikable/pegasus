@@ -1,0 +1,12 @@
+<h1>New Team</h1>
+
+<p><%= link_to('Click here to go back', controller: "teams", action: "index") %></p>
+
+<h4>Team details:</h4>
+<%= form_tag(controller: "teams", action: "create") do %>
+  <%= label_tag(:name, "Name:") %>
+  <%= text_field_tag(:name) %> <br />
+  <%= label_tag(:description, "Description:") %>
+  <%= text_field_tag(:description) %> <br />
+  <%= submit_tag("Submit") %>
+<% end %>

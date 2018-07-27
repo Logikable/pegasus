@@ -1,1 +1,17 @@
 <h1>Teams</h1>
+
+<p><%= link_to('Click to make a new team', controller: "teams", action: "new") %></p>
+
+<h2>List of teams</h2>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+  </tr>
+  <% @teams.each do |t| %>
+    <tr>
+      <td><%= link_to(t.name, team_path(t)) %></td>
+      <td><%= t.description %></td>
+    </tr>
+  <% end %>
+</table>

@@ -33,7 +33,7 @@
       <div class="shortcuts">
         <div class="shortcut">
           <a href="/">
-            <% if current_page == "/" %>
+            <% if current_page == "" %>
               <%= image_tag image_url("feed_active.svg")%>
               <p class="shortcut-link shortcut-active">My Feed</p>
             <% else %>
@@ -44,7 +44,7 @@
         </div>
         <div class="shortcut">
           <a href="/projects">
-            <% if current_page == "/projects" %>
+            <% if current_page == "projects" %>
               <%= image_tag image_url("projects_active.svg") %>
               <p class="shortcut-link shortcut-active">Projects</p>
             <% else %>
@@ -55,7 +55,7 @@
         </div>
         <div class="shortcut">
           <a href="/profile">
-            <% if current_page == "/profile" || current_page == "user" %>
+            <% if current_page == "profile" || current_page == "user" %>
               <%= image_tag image_url("profile_active.svg") %>
               <p class="shortcut-link shortcut-active">Profile</p>
             <% else %>
@@ -66,7 +66,7 @@
         </div>
         <div class="shortcut">
           <a href="/teams">
-            <% if current_page == "/teams" %>
+            <% if current_page == "teams" %>
               <%= image_tag image_url("teams_active.svg") %>
               <p class="shortcut-link shortcut-active">Teams</p>
             <% else %>

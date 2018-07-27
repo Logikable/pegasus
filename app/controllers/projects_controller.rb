@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "login")
     else
-      @project = Project.find_by(title: params[:id])
+      @project = Project.find(params[:id])
       if @project.nil?
         redirect_to(controller: "projects", action: "index")
         return
@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "login")
     else
-      project = Project.find_by(title: params[:id])
+      project = Project.find(params[:id])
       if project.nil?
         redirect_to(controller: "projects", action: "index")
         return

@@ -1,0 +1,12 @@
+<h1>Team <%= @team.name %></h1>
+
+<p><%= link_to('Click here to go back', controller: "teams", action: "index") %></p>
+
+<table>
+  <tr>
+    <td>Description</td>
+    <td><%= @team.description %></td>
+  </tr>
+</table>
+
+<p><%= link_to('Delete team',  @team, method: :delete) %></p>
