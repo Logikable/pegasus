@@ -2,6 +2,6 @@
 
 <%= form_for @user do |u| %>
   Role: <%= u.text_field :role %>
-  Team: <%= u.text_field :team %>
+  Team: <%= u.collection_select :team, Team.all, :id, :name, prompt: true %>
   <%= u.submit "Update" %>
 <% end %>

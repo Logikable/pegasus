@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_many :stars, :foreign_key => :starree_id
   has_many :projects, :through => :stars
+  belongs_to :team
   
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize(

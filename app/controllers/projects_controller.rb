@@ -59,16 +59,27 @@ class ProjectsController < ApplicationController
       current_user.xp += 2
       current_user.save
 
-      Project.create(owner: current_user.email,
+      puts params
+      Project.create(
+        owner: current_user.email,
         title: params[:title],
         collaborators: params[:collaborators],
         stakeholders: params[:stakeholders],
         description: params[:description],
         tasks: params[:tasks],
         milestones: params[:milestones],
-        stars: "",
-        done: false,
-        )
+        team_id: params[:team][:team],
+        done: false
+      )
+      redirect_to(controller: "projects", action: "index")
+    end
+  end
+
+  def destroy
+    if current_user.nil?
+      redirect_to(controller: "home", action: "login")
+    else
+      Project.find(params[:id]).destroy
       redirect_to(controller: "projects", action: "index")
     end
   end

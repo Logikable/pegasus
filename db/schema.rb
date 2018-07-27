@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_27_225709) do
+ActiveRecord::Schema.define(version: 2018_07_27_233355) do
 
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_225709) do
     t.string "description"
     t.string "tasks"
     t.string "milestones"
-    t.integer "team", default: 1
+    t.integer "team_id", default: 1
     t.boolean "done"
   end
 
@@ -55,7 +55,7 @@ ActiveRecord::Schema.define(version: 2018_07_27_225709) do
     t.string "email"
     t.string "image"
     t.integer "xp"
-    t.integer "team", default: 1
+    t.integer "team_id", default: 1
     t.string "role"
   end
 

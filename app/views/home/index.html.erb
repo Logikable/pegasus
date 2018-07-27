@@ -12,7 +12,7 @@
           <%= image_tag image_url(person.image) %>
           <div class="top-person-description">
             <p><%= person.name %></p>
-            <p class="top-person-role-team"><%= person.role.nil? || person.role == "" ? "No role set" : person.role %> | <%= person.team.nil? || person.team == "" ? "No team set" : person.team %></p>
+            <p class="top-person-role-team"><%= person.role.nil? || person.role == "" ? "No role set" : person.role %> | <%= person.team.nil? ? "No team set" : person.team.name %></p>
           </div>
           <span><%= person.xp %></span>
         </div>

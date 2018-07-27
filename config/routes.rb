@@ -11,9 +11,9 @@ Rails.application.routes.draw do
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:index]
-  resources :user
-  resources :projects, only: [:index, :show, :new, :create, :edit]
   resources :star, only: [:new, :create]
+  resources :user
+  resources :projects
   resources :teams
 
   root 'home#index'

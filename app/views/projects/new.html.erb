@@ -13,7 +13,7 @@
   <%= label_tag(:milestones, "Milestones:") %>
   <%= text_field_tag(:milestones) %> <br />
   <%= label_tag(:team, "Team:") %>
-  <%= text_field_tag(:team) %> <br />
+  <%= collection_select(:team, :team, Team.all, :id, :name, prompt: true) %><br/>
   <%= label_tag(:collaborators, "Collaborators:") %>
   <%= text_field_tag(:collaborators) %> <br />
   <%= label_tag(:stakeholders, "Stakeholders:") %>

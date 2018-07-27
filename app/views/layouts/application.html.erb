@@ -19,7 +19,7 @@
       </div>
       <div class="profile_description">
         <h4><%= current_user.name %></h4>
-        <h6><%= current_user.role.nil? || current_user.role == "" ? "No role set" : current_user.role %> | <%= current_user.team.nil? || current_user.team == "" ? "No team set" : current_user.team %></h6>
+        <h6><%= current_user.role.nil? || current_user.role == "" ? "No role set" : current_user.role %> | <%= current_user.team.nil? ? "No team set" : current_user.team.name %></h6>
         <h6 class="exp">XP: <span class="expnum"><%= current_user.xp %></span> <span class="exppts">PTS</span></h6>
       </div>
       <div class="progress">

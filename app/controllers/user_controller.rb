@@ -12,6 +12,7 @@ class UserController < ApplicationController
       redirect_to(controller: "home", action: "login")
     else
       @user = User.find(params[:id])
+      @available_teams = Team.all
       if @user.nil?
         redirect_to(controller: "user", action: "index")
         return
@@ -33,7 +34,7 @@ class UserController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:role, :team)
+    params.require(:user).permit(:role, :team_id)
   end
 
 end
