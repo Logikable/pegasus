@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:index]
   resources :user
+  resource :projects
 
   root 'home#index'
 
