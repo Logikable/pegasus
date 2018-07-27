@@ -1,0 +1,13 @@
+<h1>New Project</h1>
+<p>Very good app</p>
+
+<p><%= link_to('Click here to go back', controller: "projects", action: "show") %></p>
+
+<h4>Project details:</h4>
+<%= form_tag(controller: "star", action: "create") do %>
+  <%= label_tag(:project, "Project:") %>
+  <%= text_field_tag(:project) %> <br />
+  <%= label_tag(:receiver, "Staree:") %>
+  <%= text_field_tag(:receiver) %> <br />
+  <%= submit_tag("Submit") %>
+<% end %>

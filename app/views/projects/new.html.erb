@@ -1,0 +1,23 @@
+<h1>New Project</h1>
+<p>Very good app</p>
+
+<p><%= link_to('Click here to go back', controller: "projects", action: "show") %></p>
+
+<h4>Project details:</h4>
+<%= form_tag(controller: "projects", action: "create") do %>
+  <%= label_tag(:title, "Title:") %>
+  <%= text_field_tag(:title) %> <br />
+  <%= label_tag(:description, "Description:") %>
+  <%= text_field_tag(:description) %> <br />
+  <%= label_tag(:tasks, "Tasks:") %>
+  <%= text_field_tag(:tasks) %> <br />
+  <%= label_tag(:milestones, "Milestones:") %>
+  <%= text_field_tag(:milestones) %> <br />
+  <%= label_tag(:team, "Team:") %>
+  <%= text_field_tag(:team) %> <br />
+  <%= label_tag(:collaborators, "Collaborators:") %>
+  <%= text_field_tag(:collaborators) %> <br />
+  <%= label_tag(:stakeholders, "Stakeholders:") %>
+  <%= text_field_tag(:stakeholders) %> <br />
+  <%= submit_tag("Submit") %>
+<% end %>

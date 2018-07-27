@@ -1,0 +1,31 @@
+<h1>Projects</h1>
+<p>Very good app</p>
+
+<p><%= link_to('Click to make a new project', controller: "projects", action: "new") %></p>
+<p><%= link_to('Click here to star a project', controller: "star", action: "new") %></p>
+
+<h2>List of projects</h2>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Tasks</th>
+    <th>Milestones</th>
+    <th>Team</th>
+    <th>Collaborators</th>
+    <th>Stakeholders</th>
+    <th>Stars</th>
+  </tr>
+  <% @projects.each do |project| %>
+    <tr>
+      <td><%= project.title %></td>
+      <td><%= project.description %></td>
+      <td><%= project.tasks %></td>
+      <td><%= project.milestones %></td>
+      <td><%= project.team %></td>
+      <td><%= project.collaborators %></td>
+      <td><%= project.stakeholders %></td>
+      <td><%= project.stars %></td>
+    </tr>
+  <% end %>
+</table>
