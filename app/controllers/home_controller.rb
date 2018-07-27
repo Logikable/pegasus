@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   end
 
   def login
-    render "login"
+    render layout: "login", action: "login"
   end
 end

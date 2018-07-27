@@ -25,34 +25,41 @@ html, body {
 h1 {
   font-size: 48px;
   line-height: 56px;
+  font-weight: normal;
 }
 
 h2 {
   font-size: 40px;
   line-height: 48px;
+  font-weight: normal;
 }
 
 h3 {
   font-size: 32px;
   line-height: 40px;
+  font-weight: normal;
 }
 
 h4 {
   font-size: 24px;
   line-height:32px;
+  font-weight: normal;
 }
 
 h5 {
   font-size: 20px;
   line-height:28px;
+  font-weight: normal;
 }
 
 h6 {
   font-size: 16px;
   line-height:24px;
+  font-weight: normal;
 }
 
 p {
   font-size: 14px;
   line-height:20px;
+  font-weight: normal;
 }
