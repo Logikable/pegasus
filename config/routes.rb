@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'sessions/create'
   get 'sessions/destroy'
   get 'home/index'
+  get '/login', to: 'home#login'
 
   resources :sessions, only: [:create, :destroy]
   resource :home, only: [:index]

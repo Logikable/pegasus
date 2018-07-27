@@ -29,4 +29,8 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
+<<<<<<< HEAD
 Gemfile.lock
+=======
+.DS_Store
+>>>>>>> e4dd79a44e86aca9f680b26fce6f233166a5de60
