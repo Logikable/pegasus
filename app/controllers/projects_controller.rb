@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
       if user.nil?
         redirect_to(controller: "projects", action: "show")
         return
+      end
       user.xp += 2
       user.save
 
