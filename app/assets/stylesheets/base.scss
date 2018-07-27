@@ -127,7 +127,7 @@ body {
   overflow-y: auto;
 
   .profile_container {
-    width: 35%;
+    width: 45%;
     margin: 0 auto;
     img {
       width: 100%;
@@ -193,28 +193,36 @@ body {
   }
 
   .shortcuts {
-    .shortcut-label{
-      font-family: "proxima_nova_black";
-      font-size: 20px;
-    }
-
+    margin-top: 25px; 
     .shortcut {
-      .shortcut-icon {
-        height: 24px;
-        width: 24px;
-        border-radius: 12px;
-        background-color: $accent-color;
+      a {
+
+        text-decoration: none;
         display: inline-block;
-        margin-right: 10px;
-      }
-      .shortcut-link {
-        display: inline-block;
-        font-size: 14px;
-        line-height: 24px;
-        height: 24px;
-        margin: 0;
-        position: relative;
-        top: -6px;
+        color: inherit;
+        img {
+          height: 24px;
+          width: 24px;
+          display: inline-block;
+          margin-right: 10px;
+        }
+        .shortcut-link {
+          display: inline-block;
+          font-size: 14px;
+          line-height: 24px;
+          height: 24px;
+          margin: 0;
+          position: relative;
+          top: -6px;
+        }
+  
+        .icon-active {
+          font-weight: 600;
+        }
+  
+        .shortcut-active {
+          font-family: "proxima_nova_semibold"
+        }
       }
     }
   }
