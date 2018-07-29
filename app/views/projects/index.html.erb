@@ -1,32 +1,19 @@
-<h1>Projects</h1>
+<div class="projects-container">
+  <h4>My Projects</h4>
+  <%= link_to('New Project', new_project_path, class: "btn-new-project") %></p>
+  <div class="my-projects">
+    <% @my_projects.each do |p| %>
+      <%= link_to project_path(p) do %>
+        <div class="my-project">
+          <div class="my-project-description">
+            <p><%= p.title %></p>
+            <p class="my-project-collaborators">5 collaborators</p>
+          </div>
+          <span><%= p.stars.size %>★</span>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 
-<p><%= link_to('Click to make a new project', controller: "projects", action: "new") %></p>
 <p><%= link_to('Click here to star a project', controller: "star", action: "new") %></p>
-
-<h2>List of projects</h2>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Tasks</th>
-    <th>Milestones</th>
-    <th>Team</th>
-    <th>Collaborators</th>
-    <th>Stakeholders</th>
-    <th>Stars</th>
-    <th>Done</th>
-  </tr>
-  <% @projects.each do |project| %>
-    <tr>
-      <td><%= link_to(project.title, project_path(project)) %></td>
-      <td><%= project.description %></td>
-      <td><%= project.tasks %></td>
-      <td><%= project.milestones %></td>
-      <td><%= project.team.name %></td>
-      <td><%= project.collaborators %></td>
-      <td><%= project.stakeholders %></td>
-      <td><%= project.stars.size %></td>
-      <td><%= project.done %></td>
-    </tr>
-  <% end %>
-</table>

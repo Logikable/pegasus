@@ -104,6 +104,7 @@
             font-size: 14px;
             font-family: "proxima_nova_semibold";
             margin: 0;
+            color: $font-color;
           }
           .top-person-role-team {
             font-size: 12px;
@@ -137,6 +138,7 @@
             font-size: 14px;
             font-family: "proxima_nova_semibold";
             margin: 0;
+            color: $font-color;
           }
           .top-project-collaborators {
             font-size: 12px;
@@ -146,6 +148,7 @@
           }
         }
         span {
+          color: $font-color;
           margin-top: 2px;
           vertical-align: top;
           font-size: 14px;

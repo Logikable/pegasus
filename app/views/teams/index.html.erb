@@ -1,17 +1,16 @@
-<h1>Teams</h1>
-
-<p><%= link_to('Click to make a new team', controller: "teams", action: "new") %></p>
-
-<h2>List of teams</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
-  <% @teams.each do |t| %>
-    <tr>
-      <td><%= link_to(t.name, team_path(t)) %></td>
-      <td><%= t.description %></td>
-    </tr>
-  <% end %>
-</table>
+<div class="teams-container">
+  <h4>Teams</h4>
+  <%= link_to('New Team', new_team_path, class: "btn-new-team") %></p>
+  <div class="teams">
+    <% @teams.each do |t| %>
+      <%= link_to team_path(t) do %>
+        <div class="team">
+          <div class="team-description">
+            <p><%= t.name %></p>
+            <p class="team-members">5 members</p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

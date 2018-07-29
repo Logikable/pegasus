@@ -1,3 +1,61 @@
 // Place all the styles related to the teams controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "colors";
+
+
+.teams-container {
+
+  h4 {
+    display: inline-block;
+    font-family: "proxima_nova_bold";
+    margin: 10px 0 0 0;
+  }
+
+  .btn-new-team {
+    width: 100px;
+    float: right;
+    height: 40px;
+    background-color: $accent-color;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-bottom: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "proxima_nova_semibold"
+  }
+
+  .teams {
+    box-shadow: 0 4px 6px 0 rgba(175, 199, 209, 0.4);
+    background-color: white;
+    border-radius: 4px;
+    padding: 15px 15px 5px 15px;
+    clear: both;
+    .team {
+      height: 50px;
+      clear: both;
+      .team-description {
+        display: inline-block;
+        vertical-align: my;
+        p {
+          font-size: 14px;
+          font-family: "proxima_nova_semibold";
+          margin: 0;
+          color: $font-color;
+        }
+        .team-members {
+          font-size: 12px;
+          font-family: "Proxima Nova";
+          color: $font-light-color;
+          margin: 0;
+        }
+      }
+    }
+  }
+}

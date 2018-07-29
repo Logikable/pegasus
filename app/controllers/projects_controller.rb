@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "login")
     else
-      @projects = Project.where(owner: current_user.email)
+      @my_projects = Project.where(owner: current_user.email)
       render "index"
     end
   end

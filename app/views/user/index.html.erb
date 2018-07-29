@@ -1,11 +1,12 @@
-<h1>Pegasus</h1>
+<div class="user-container">
+  <h4>Hello, <%= current_user.name %>!</h4>
+  <%= link_to("Edit Profile", edit_user_path(current_user), class: "btn-edit-profile") %>
 
-Hello, <strong><%= current_user.name %></strong>!
+  <h5>Your Stars</h5>
 
-<%= link_to("Edit Profile", edit_user_path(current_user)) %>
+  <% current_user.stars.each do |s| %>
+    Star given for work on <%= s.project.title %>
+  <% end %>
 
-<h2>Your Stars</h2>
+</div>
 
-<% current_user.stars.each do |s| %>
-  Star given for work on <%= s.project.title %>
-<% end %>

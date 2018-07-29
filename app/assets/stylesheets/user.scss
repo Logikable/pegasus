@@ -1,0 +1,27 @@
+@import "colors";
+
+.user-container {
+  h4 {
+    display: inline-block;
+    font-family: "proxima_nova_bold";
+    margin: 10px 0 0 0;
+  }
+
+  .btn-edit-profile {
+    width: 100px;
+    float: right;
+    height: 40px;
+    background-color: $accent-color;
+    color: white;
+    text-align: center;
+    font-size: 14px;
+    line-height: 40px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    margin-bottom: 25px;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: "proxima_nova_semibold"
+  }
+}

@@ -22,13 +22,15 @@
       <p class="feed-header">Top Projects</p>
       <p class="feed-right-header">Stars</p>
       <% @top_projects.each do |p| %>
-        <div class="top-project">
-          <div class="top-project-description">
-            <p><%= p.title %></p>
-            <p class="top-project-collaborators">5 collaborators</p>
+        <%= link_to project_path(p) do %>
+          <div class="top-project">
+            <div class="top-project-description">
+              <p><%= p.title %></p>
+              <p class="top-project-collaborators">5 collaborators</p>
+            </div>
+            <span><%= p.stars.size %>★</span>
           </div>
-          <span><%= p.stars.size %>★</span>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div><div class="feed-right">
