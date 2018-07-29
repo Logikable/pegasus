@@ -5,8 +5,7 @@ class HomeController < ApplicationController
       redirect_to :action => "login"
     else 
       @top_xp_persons = User.order(xp: :desc).limit(5)
-      # @top_projects = Project.left_joins(:stars).group(:id).order('COUNT(stars.id) DESC').limit(5)
-      @top_projects = Project.search("czhang").records
+      @top_projects = Project.left_joins(:stars).group(:id).order('COUNT(stars.id) DESC').limit(5)
       @user_results = nil
       @project_results = nil
       @team_results = nil
