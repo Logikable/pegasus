@@ -24,11 +24,11 @@
       </div>
       <div class="progress">
         <div class="progress-bar-outline">
-          <div class="progress-bar-fill">
+          <div class="progress-bar-fill" style="width: <%= get_percentage(current_user.xp) %>%">
           </div>
         </div>
-        <p class="progress-start-label">Reliable</p>
-        <p class="progress-stop-label">Accomplished</p>
+        <p class="progress-start-label"><%= get_level(current_user.xp) %></p>
+        <p class="progress-stop-label"><%= next_level(current_user.xp) %></p>
       </div>
       <div class="shortcuts">
         <div class="shortcut">
