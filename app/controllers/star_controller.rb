@@ -35,6 +35,13 @@ class StarController < ApplicationController
     s.starrer_id = current_user.id
     s.starree_id = receiver_user.id
     s.save
+
+    Update.create(
+      description: current_user.name + " gave " + receiver_user.name + " a star for work on " + project.title,
+      resource_type: "user",
+      resource_id: receiver_user.id,
+      user_id: current_user.id
+    )
     redirect_to(controller: "projects", action: "index")
   end
 end

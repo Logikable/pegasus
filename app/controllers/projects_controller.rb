@@ -40,6 +40,13 @@ class ProjectsController < ApplicationController
       current_user.xp += 5
       current_user.save
 
+      Update.create(
+        description: "Edited a project: " + project.title,
+        resource_type: "project",
+        resource_id: project.id,
+        user_id: current_user.id
+      )
+
       redirect_to(project_path(params[:id]))
     end
   end
@@ -60,7 +67,7 @@ class ProjectsController < ApplicationController
       current_user.save
 
       puts params
-      Project.create(
+      project = Project.create(
         owner: current_user.email,
         title: params[:title],
         collaborators: params[:collaborators],
@@ -71,6 +78,12 @@ class ProjectsController < ApplicationController
         team_id: params[:team][:team],
         done: false
       )
+      Update.create(
+        description: "Created a project: " + project.title,
+        resource_type: "project",
+        resource_id: project.id,
+        user_id: current_user.id
+      )
       redirect_to(controller: "projects", action: "index")
     end
   end
@@ -79,7 +92,14 @@ class ProjectsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "login")
     else
-      Project.find(params[:id]).destroy
+      project = Project.find(params[:id])
+      Update.create(
+        description: "Deleted a project: " + project.title,
+        resource_type: "project",
+        resource_id: project.id,
+        user_id: current_user.id
+      )
+      project.destroy
       redirect_to(controller: "projects", action: "index")
     end
   end

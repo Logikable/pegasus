@@ -36,9 +36,16 @@ class TeamsController < ApplicationController
       current_user.xp += 2
       current_user.save
 
-      Team.create(
+      team = Team.create(
         name: params[:name],
         description: params[:description]
+      )
+
+      Update.create(
+        description: "Created a team: " + team.name,
+        resource_type: "team",
+        resource_id: team.id,
+        user_id: current_user.id
       )
       redirect_to(controller: "teams", action: "index")
     end
@@ -48,7 +55,16 @@ class TeamsController < ApplicationController
     if current_user.nil?
       redirect_to(controller: "home", action: "login")
     else
-      Team.find(params[:id]).destroy
+      team = Team.find(params[:id])
+
+      Update.create(
+        description: "Deleted a team: " + team.name,
+        resource_type: "team",
+        resource_id: team.id,
+        user_id: current_user.id
+      )
+
+      team.destroy
       redirect_to(controller: "teams", action: "index")
     end
   end

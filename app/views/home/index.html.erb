@@ -37,7 +37,16 @@
     </div>
   </div><div class="feed-right">
     <div class="feed-updates">
-      <p class="feed-header">Updates</p>
+      <p class="feed-header" style="margin-top: 5px">Updates</p>
+        <% @updates.each_with_index do |u, i| %>
+        <div class="update <%= i != @updates.length - 1 ? "update-line" : "" %>">
+          <%= image_tag image_url(u.user.image) %>
+          <div class="update-content">
+            <p><%= u.user.name %></p>
+            <p class="update-description"><%= u.description %></p>
+          </div>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>

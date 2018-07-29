@@ -6,6 +6,7 @@ class HomeController < ApplicationController
     else 
       @top_xp_persons = User.order(xp: :desc).limit(5)
       @top_projects = Project.left_joins(:stars).group(:id).order('COUNT(stars.id) DESC').limit(5)
+      @updates = Update.order(created_at: :desc).limit(10)
       @user_results = nil
       @project_results = nil
       @team_results = nil
