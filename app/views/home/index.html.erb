@@ -1,7 +1,9 @@
 <div class="feed-container">
   <div class="feed-searchbar-container">
     <%= image_tag image_url("search.svg"), class: "search-icon" %>
-    <input type="text" placeholder="Search Pegasus" class="feed-searchbar" />
+    <%= form_tag url_for(:controller => 'home', :action => 'search'), method: "get", class: "feed-searchform" do %>
+        <%= text_field_tag(:query, nil, placeholder: "Search Pegasus", class: "feed-searchbar" )%>
+    <% end %>
   </div>
   <div class="feed-left">
     <div class="top-exp-persons">

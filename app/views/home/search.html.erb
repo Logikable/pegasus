@@ -1,0 +1,68 @@
+<div class="feed-container">
+  <div class="feed-searchbar-container">
+    <%= image_tag image_url("search.svg"), class: "search-icon" %>
+    <%= form_tag url_for(:controller => 'home', :action => 'search'), method: "get", class: "feed-searchform" do %>
+        <%= text_field_tag(:query, params[:query], placeholder: "Search Pegasus", class: "feed-searchbar" )%>
+    <% end %>
+  </div>
+  <div>
+    <h4 class="search-header">Search results for ‘<%= params[:query] %>’</h4>
+    <%= link_to('< Go Back', home_index_path, class: "btn-go-back") %></p>
+  </div>
+  <div>
+    <div class="feed-left">
+      <div class="top-projects">
+        <p class="feed-header">Projects</p>
+        <% if @project_results.size == 0 %>
+          <p class="no-results">No results found</p>
+        <% else %>
+          <% @project_results.each do |p| %>
+            <%= link_to project_path(p.id) do %>
+              <div class="top-project">
+                <div class="top-project-description">
+                  <p><%= p.title %></p>
+                  <p class="top-project-collaborators">5 collaborators</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="top-projects" style="margin-top: 25px">
+        <p class="feed-header">Teams</p>
+        <% if @team_results.size == 0 %>
+          <p class="no-results">No results found</p>
+        <% else %>
+          <% @team_results.each do |t| %>
+            <%= link_to team_path(t.id) do %>
+              <div class="top-project">
+                <div class="top-project-description">
+                  <p><%= t.name %></p>
+                  <p class="top-project-collaborators">5 members</p>
+                </div>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div><div class="feed-right">
+      <div class="feed-updates">
+        <p class="feed-header">People</p>
+          <% if @user_results.size == 0 %>
+            <p class="no-results">No results found</p>
+          <% else %>
+            <% @user_results.each do |person| %>
+              <div class="top-person">
+                <%= image_tag image_url(person.image) %>
+                <div class="top-person-description">
+                  <p><%= person.name %></p>
+                  <p class="top-person-role-team"><%= person.role.nil? || person.role == "" ? "No role set" : person.role %></p>
+                </div>
+                <span><%= person.xp %></span>
+              </div>
+            <% end %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,15 @@
 class User < ApplicationRecord
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
+
+  settings do
+    mappings dynamic: false do
+      indexes :name, type: :text
+      indexes :email, type: :text
+      indexes :role, type: :text, analyzer: :english
+    end
+  end
+  
   has_many :stars, :foreign_key => :starree_id
   has_many :projects, :through => :stars
   belongs_to :team

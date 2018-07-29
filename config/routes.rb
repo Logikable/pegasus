@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'sessions/destroy'
   get 'home/index'
   get '/login', to: 'home#login'
+  get '/search', to: 'home#search'
   get 'profile', to: 'user#index'
 
   resources :sessions, only: [:create, :destroy]
