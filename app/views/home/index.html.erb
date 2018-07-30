@@ -28,7 +28,7 @@
           <div class="top-project">
             <div class="top-project-description">
               <p><%= p.title %></p>
-              <p class="top-project-collaborators">5 collaborators</p>
+              <p class="top-project-collaborators"><%= truncate(p.description, :length => 60) %></p>
             </div>
             <span><%= p.stars.size %>★</span>
           </div>

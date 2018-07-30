@@ -1,8 +1,6 @@
-<h1>New Project</h1>
+<h4>New Project</h4>
+<%= link_to '< Go Back', {controller: "projects", action: "index"}, class: "btn-go-back" %>
 
-<p><%= link_to('Click here to go back', controller: "projects", action: "index") %></p>
-
-<h4>Project details:</h4>
 <%= form_tag(controller: "projects", action: "create") do %>
   <%= label_tag(:title, "Title:") %>
   <%= text_field_tag(:title) %> <br />
@@ -18,5 +16,5 @@
   <%= text_field_tag(:collaborators) %> <br />
   <%= label_tag(:stakeholders, "Stakeholders:") %>
   <%= text_field_tag(:stakeholders) %> <br />
-  <%= submit_tag("Submit") %>
+  <%= submit_tag "Submit", class: "btn" %>
 <% end %>

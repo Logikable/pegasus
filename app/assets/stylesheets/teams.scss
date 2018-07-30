@@ -4,14 +4,14 @@
 
 @import "colors";
 
+h4 {
+  display: inline-block;
+  font-family: "proxima_nova_bold";
+  margin: 10px 0 20px 0;
+}
 
 .teams-container {
 
-  h4 {
-    display: inline-block;
-    font-family: "proxima_nova_bold";
-    margin: 10px 0 0 0;
-  }
 
   .btn-new-team {
     width: 100px;
@@ -55,6 +55,15 @@
           color: $font-light-color;
           margin: 0;
         }
+      }
+
+      span {
+        color: $font-color;
+        margin-top: 2px;
+        vertical-align: top;
+        font-size: 14px;
+        font-family: "proxima_nova_semibold";
+        float:right;
       }
     }
   }

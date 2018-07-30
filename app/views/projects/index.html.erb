@@ -7,9 +7,9 @@
         <div class="my-project">
           <div class="my-project-description">
             <p><%= p.title %></p>
-            <p class="my-project-collaborators">5 collaborators</p>
+            <p class="my-project-collaborators"><%= truncate(p.description, :length => 60) %></p>
           </div>
-          <span><%= p.stars.size %>★</span>
+          <span><%= p.stars.size %> ★</span>
         </div>
       <% end %>
     <% end %>
