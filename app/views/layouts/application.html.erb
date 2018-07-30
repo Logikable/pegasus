@@ -33,7 +33,7 @@
       <div class="shortcuts">
         <div class="shortcut">
           <a href="/">
-            <% if current_page == "" || current_page.nil? %>
+            <% if current_page == "" || current_page == "home" || current_page.nil? %>
               <%= image_tag image_url("feed_active.svg")%>
               <p class="shortcut-link shortcut-active">My Feed</p>
             <% else %>

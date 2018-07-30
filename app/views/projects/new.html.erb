@@ -5,7 +5,14 @@
   <%= label_tag(:title, "Title:") %>
   <%= text_field_tag(:title) %> <br />
   <%= label_tag(:description, "Description:") %>
-  <%= text_field_tag(:description) %> <br />
+  <%= text_area_tag(:description) %> <br />
+  <%= label_tag(:priority, "Priority") %><br/>
+  <%= radio_button_tag "priority", "Low" %>
+  <%= label_tag(:priority_low, "Low") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= radio_button_tag "priority", "Medium", true %>
+  <%= label_tag(:priority_low, "Medium") %>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <%= radio_button_tag "priority", "High" %> 
+  <%= label_tag(:priority_low, "High") %> <br />
   <%= label_tag(:tasks, "Tasks:") %>
   <%= text_field_tag(:tasks) %> <br />
   <%= label_tag(:milestones, "Milestones:") %>
@@ -16,5 +23,7 @@
   <%= text_field_tag(:collaborators) %> <br />
   <%= label_tag(:stakeholders, "Stakeholders:") %>
   <%= text_field_tag(:stakeholders) %> <br />
+  <%= label_tag(:office, "Office:") %>
+  <%= select_tag "office", options_for_select([ "San Francisco", "San Jose", "Amsterdam", "Shanghai", "Toronto" ], "San Francisco") %> <br />
   <%= submit_tag "Submit", class: "btn" %>
 <% end %>

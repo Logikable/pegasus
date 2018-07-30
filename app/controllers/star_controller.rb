@@ -13,13 +13,13 @@ class StarController < ApplicationController
       return
     end
 
-    project = Project.find_by(title: params[:project])
+    project = Project.find(params[:project_id])
     if project.nil?
       redirect_to(controller: "projects", action: "index")
       return
     end
 
-    receiver_user = User.find_by(email: params[:receiver])
+    receiver_user = User.find(params[:receiver_id])
     if receiver_user.nil?
       redirect_to(controller: "projects", action: "index")
       return

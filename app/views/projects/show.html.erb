@@ -1,45 +1,75 @@
-<h1>Project <%= @project.title %></h1>
+<h4><%= @project.title %></h4>
+<%= link_to '< Go back', {controller: "projects", action: "index"}, class: "btn-go-back" %></p>
 
-<p><%= link_to('Click here to go back', controller: "projects", action: "index") %></p>
-<p><%= link_to('Complete project', edit_project_path(@project)) %></p>
-
-<table>
-  <tr>
-    <td>Description</td>
-    <td><%= @project.description %></td>
-  </tr>
-  <tr>
-    <td>Tasks</td>
-    <td><%= @project.tasks %></td>
-  </tr>
-  <tr>
-    <td>Milestones</td>
-    <td><%= @project.milestones %></td>
-  </tr>
-  <tr>
-    <td>Team</td>
-    <td><%= @project.team.name %></td>
-  </tr>
-  <tr>
-    <td>Collaborators</td>
-    <td><%= @project.collaborators %></td>
-  </tr>
-  <tr>
-    <td>Stakeholders</td>
-    <td><%= @project.stakeholders %></td>
-  </tr>
-  <tr>
-    <td>Stars</td>
-    <td>
-      <% @project.stars.each do |s| %>
-        <p>Star given to <%= s.starree.name %> by <%= s.starrer.name %></p>
+<div class="project-container">
+  <div class="project-left">
+    <div class="project-details">
+      <p class="projects-header" style="margin-bottom: 13px">Details</p>
+      <div class="project-content">
+        <h6>Description</h6>
+        <p style="font-family: 'Proxima Nova'"><%= @project.description %></p>
+      </div>
+      <div class="project-content">
+        <h6>Priority</h6>
+        <p><span class="project-priority" style="background-color: <%= get_priority_color(@project.priority) %>"><%= @project.priority %></span></p>
+      </div>
+      <div class="project-content">
+        <h6>Deadline</h6>
+        <p>08/15/2018</p>
+      </div>
+      <div class="project-content">
+        <h6>Office</h6>
+        <p><%= image_tag image_url(get_office_img(@project.office)), class: "project-office-img" %><%= @project.office %></p>
+      </div>
+      <div class="project-content">
+        <h6>Team</h6>
+        <p><%= @project.team.name %></p>
+      </div>
+    </div>
+    <div class="project-collaborators">
+      <p class="projects-header" style="margin-bottom: 15px;">Collaborators (<%= @project.project_collaborators.size %>)</p>
+      <% @project.project_collaborators.each do |c| %>
+        <div class="project-collaborator">
+          <%= image_tag image_url(c.user.image) %>
+          <div class="project-collaborator-description">
+            <p><%= c.user.name %></p>
+            <p class="project-collaborator-role"><%= c.user.role.nil? || c.user.role == "" ? "No role set" : c.user.role %></p>
+          </div>
+          <%= form_tag(controller: "star", action: "create", project_id: @project.id, receiver_id: c.user.id) do %>
+            <%= submit_tag "Give a Star", class: "give-star" %>
+          <% end %>
+        </div>
       <% end %>
-    </td>
-  </tr>
-  <tr>
-    <td>Done</td>
-    <td><%= @project.done %></td>
-  </tr>
-</table>
+    </div>
+    <div class="project-stakeholders">
+      <p class="projects-header">Stakeholders (<%= "0" %>)</p>
+      <p><%= @project.stakeholders %></p>
+    </div>
+  </div><div class="project-right">
+    <div class="project-milestones">
+      <p class="projects-header" style="margin-top: 5px">Milestones</p>
+      <p><%= @project.milestones %></p>
+    </div>
+    <div class="project-tasks">
+      <p class="projects-header" style="margin-top: 5px">Tasks</p>
+      <p><%= @project.tasks %></p>
+    </div>
+    <div class="project-stars">
+      <p class="projects-header" style="margin-top: 5px;margin-bottom: 15px;">Stars</p>
+      <% @project.stars.each do |s| %>
+        <div class="project-collaborator">
+          <%= image_tag image_url(s.starree.image) %>
+          <div class="project-collaborator-description">
+            <p><%= s.starree.name %></p>
+            <p class="project-collaborator-role">Received from <%= s.starrer.name %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 
+<!--
 <p><%= link_to('Delete project',  @project, method: :delete) %></p>
+<p><%= link_to('Complete project', edit_project_path(@project)) %></p>
+-->

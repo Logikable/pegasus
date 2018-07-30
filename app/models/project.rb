@@ -13,5 +13,9 @@ class Project < ApplicationRecord
 
   has_many :stars, dependent: :destroy
   has_many :users, :through => :stars
+
+  has_many :project_collaborators, dependent: :destroy
+  has_many :users, :through => :project_collaborators
+  
   belongs_to :team
 end

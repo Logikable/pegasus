@@ -291,7 +291,7 @@ label {
 }
 
 %btn { 
-  width: 100px;
+  width: 200px;
   height: 40px;
   background-color: $accent-color;
   color: white;
@@ -314,4 +314,5 @@ label {
 .btn-go-back {
   @extend %btn;
   float: right;
+  background-color: #5243aa;
 }

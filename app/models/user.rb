@@ -12,6 +12,10 @@ class User < ApplicationRecord
   
   has_many :stars, :foreign_key => :starree_id
   has_many :projects, :through => :stars
+
+  has_many :project_collaborators, dependent: :destroy
+  has_many :projects, :through => :project_collaborators
+  
   belongs_to :team
   
   def self.from_omniauth(auth)

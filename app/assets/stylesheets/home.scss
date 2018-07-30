@@ -95,9 +95,8 @@
 
 
 .update {
-  height: 50px;
   clear: both;
-  padding-top: 11px;
+  padding: 11px 0;
   img {
     height: 34px;
     margin-top: 2px;
@@ -108,6 +107,7 @@
   .update-content {
     display: inline-block;
     vertical-align: top;
+    width: 85%;
     p {
       font-size: 14px;
       font-family: "proxima_nova_semibold";

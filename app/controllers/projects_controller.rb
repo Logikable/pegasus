@@ -70,14 +70,23 @@ class ProjectsController < ApplicationController
       project = Project.create(
         owner: current_user.email,
         title: params[:title],
-        collaborators: params[:collaborators],
         stakeholders: params[:stakeholders],
         description: params[:description],
         tasks: params[:tasks],
         milestones: params[:milestones],
         team_id: params[:team][:team],
+        office: params[:office],
+        priority: params[:priority],
         done: false
       )
+      collaborators = params[:collaborators].split(",")
+      collaborators.each { |c|
+        user = User.find_by(name: c)
+        ProjectCollaborator.create(
+          user_id: user.id,
+          project_id: project.id
+        )
+      }
       Update.create(
         description: "Created a project: " + project.title,
         resource_type: "project",

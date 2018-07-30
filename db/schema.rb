@@ -10,20 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_29_222328) do
+ActiveRecord::Schema.define(version: 2018_07_30_050650) do
+
+  create_table "project_collaborators", force: :cascade do |t|
+    t.integer "project_id"
+    t.integer "user_id"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "title"
     t.string "owner"
-    t.string "collaborators"
     t.string "stakeholders"
     t.string "description"
     t.string "tasks"
     t.string "milestones"
     t.integer "team_id", default: 1
     t.boolean "done"
+    t.string "office"
+    t.string "priority"
+    t.date "deadline"
   end
 
   create_table "stars", force: :cascade do |t|
